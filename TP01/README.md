@@ -2,8 +2,7 @@
 
   * Grégoire Pichon, Université Lyon 1, LIP [email](mailto:gregoire.pichon@univ-lyon1.fr)
   * Nicolas Louvet, pareil, sauf l'adresse :D
-  * Version: 2020
-
+  * Version: 2021
 
 ## Description du problème
 
