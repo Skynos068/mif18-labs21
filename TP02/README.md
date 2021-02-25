@@ -1,15 +1,7 @@
 # MIF18-Lab TP2: Mémoire virtuelle
 
   * Grégoire Pichon, Université Lyon 1, LIP [email](mailto:gregoire.pichon@univ-lyon1.fr)
-  * Version: 2020
-
-## Rendu du TP
-
-Nous vous demandons de consacrer 3h à ce TP, comme cela était prévu dans l'emploi du temps initial.
-
-Il faudra rendre au plus tard le vendredi 20/03 à minuit et sur TOMUSS une archive tgz contenant 1 page de réponses aux questions et un fichier en C avec les différents morceaux de code demandés.
-
-L'objectif est de montrer que vous avez fait le TP, sans forcément répondre à toutes les questions ni aller au bout si les 3h ne vous suffisent pas.
+  * Version: 2021
 
 ## Description du TP
 
