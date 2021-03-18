@@ -1,3 +1,4 @@
+l
 # MIF18-Lab TP 3: Daemon
 
   * Nicolas Louvet, Grégoire Pichon, Université Lyon 1, LIP [email](mailto:nicolas.louvet@univ-lyon1.fr;gregoire.pichon@univ-lyon1.fr)
@@ -56,13 +57,6 @@ pour préparer le sujet, et qui peuvent vous être utiles :
 * https://doc.ubuntu-fr.org/creer_un_service_avec_systemd
 * https://access.redhat.com/documentation/fr-fr/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-managing_services_with_systemd-unit_files
 * https://wiki.archlinux.org/index.php/Systemd/User
-
-Pour ce TP/tuto, nous vous demandons donc de nous faire un petit
-rapport sur :
-* ce qui vous a posé problème en essayant de suivre le tuto,
-* quelles solutions vous avez tentées,
-* d'expérimenter avec au moins un autre service que le service bidon
-  utilisé dans le sujet.
 
 ## En "mode utilisateur"
 
