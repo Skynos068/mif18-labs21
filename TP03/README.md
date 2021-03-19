@@ -83,7 +83,7 @@ suivant :
 ```
 #!/bin/sh
 
-nc -l -p 8888 -c <<EOF
+nc -l -p 8888 -q 0 <<EOF
 HTTP/1.1 200 OK
 
 
@@ -242,7 +242,7 @@ sinon ça ne peut pas fonctionner) :
 
 while true; do
 d=$(date)
-nc -l -p 8888 -c <<EOF
+nc -l -p 8888 -q 0 <<EOF
 HTTP/1.1 200 OK
 
 
