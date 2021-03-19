@@ -264,7 +264,7 @@ demander à votre systemd de recharger sa configuration, et à relancer
 votre service). Testez votre service depuis votre navigateur :
 logiquement, tout doit fonctionner !
 
-### On installe le service !
+### On installe le service ! (Edit 2021: le service n'est pas disponible au redémarrage chez moi)
 
 Dans l'état actuel des chose, votre systemd prend en charge le service
 `mini-web.service`, mais le service ne sera pas rechargé la prochaine
@@ -328,12 +328,21 @@ C'est presque la même chose que dans le cas "utilisateur" ;
 simplement, on a ajouté la contrainte `After=network.target` pour que
 le service ne soit démarré qu'après le réseau. On a aussi ajouté
 `User=nlouvet` pour que le service s'exécute pour le compte de
-l'utilisateur `nlouvet`.
+l'utilisateur `nlouvet`. Une autre solution sans préciser le nom
+d'utilisateur aurait été d'utiliser `WantedBy=multi-user.target`.
 
 Pour la suite, vous pouvez utiliser la commande `systemctl` comme
 précédemment, mais il faut l'exécuter sur le compte du
 super-utilisateur ; il faudra faire par exemple `sudo systemctl
 daemon-reload` pour recharger la config (plus de `--user`).
 
-
-
+Edit 2021: Il faut mettre le script `mini-web.sh` dans un répertoire
+accessible, par exemple `/etc/systemd/system/`, sinon le script n'est
+pas trouvé. Dans mon cas `/home/gpichon/lib` n'était pas encore
+monté quand le service est lancé. Ajouter les lignes:
+```
+ Requires=home-gpichon.mount
+ After=home-gpichon.mount
+```
+ne permet pas de règler le problème, tout ce qui est dans `/home` ne
+sera pas accessible à ce niveau.
