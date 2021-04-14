@@ -5,7 +5,7 @@
 """
 MIF18 TP5 Linux scheduling
 Script pour tracer les courbes de l'exo 3. 
-Grégoire Pichon et Laure Gonnord, Avril 2020
+V1 Grégoire Pichon et Laure Gonnord, Avril 2020
 usage python3 test_ex3.py
 """
 

@@ -51,7 +51,7 @@ taskset -c 0 ./mon_programme
   commande `nice` ou `renice`. Par exemple pour binder votre programme
   sur le processeur d'indice 0 avec la priorité 5:
 ```C
-taskset -c 0 nice -n 5./mon_programme
+taskset -c 0 nice -n 5 ./mon_programme
 ```
 Attention, sur certains systèmes Linux, les valeurs de nice ne sont
 pas prises en compte entre différentes session (une session correspond
@@ -152,8 +152,8 @@ priorités fonctionnent.
 
 ## Step 4: thread versus processus
 
-* Mêmes questions pour un processus multi-threadé, par rapport à un
-  processus mono-thread, comment le temps CPU est réparti ? Mesurez
+* Mêmes questions pour un processus multi-threadé. Par rapport à un
+  processus mono-thread, comment le temps CPU est-il réparti ? Mesurez
   les changements de contexte et concluez sur les surcoûts de
   l'ordonnancement.
 

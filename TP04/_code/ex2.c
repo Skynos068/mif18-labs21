@@ -5,7 +5,7 @@
 #include <sched.h>
 
 /*MIF18 : Lab 5 Linux Scheduling, ex2*/
-/* Grégoire Pichon, 2020*/ 
+/* Grégoire Pichon, 2021 */ 
 
 #define NB_CALLS 100000
 #define ONE_MILLION 1000000 // pour convertir les secondes en microsecondes
