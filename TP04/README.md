@@ -1,4 +1,4 @@
-# MIF18-Lab TP5 : Ordonnancement Linux
+# MIF18-Lab TP4 : Ordonnancement Linux
 
   * Grégoire Pichon, Université Lyon 1, LIP [email](mailto:gregoire.pichon@univ-lyon1.fr)
   * Version: 2021
