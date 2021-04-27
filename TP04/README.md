@@ -152,8 +152,13 @@ priorités fonctionnent.
 
 ## Step 4: thread versus processus
 
-* Mêmes questions pour un processus multi-threadé. Par rapport à un
-  processus mono-thread, comment le temps CPU est-il réparti ? Mesurez
-  les changements de contexte et concluez sur les surcoûts de
-  l'ordonnancement.
+* Par rapport à un processus mono-thread, comment le temps CPU est-il
+  réparti ? Vous pouvez par exemple comparer (en bindant sur le même
+  coeur) un processus mono-threadé qui fait une boucle infinie et un
+  processus multi-threadé où chaque thread fait une boucle infinie.
+
+* Mesurez les changements de contexte. Que se passe t-il ? Vous pouvez
+  vérifier qui a la main après chaque appel à `sched_yield()` en
+  ajoutant de l'affichage. Attention de bien l'enlever quand vous voulez
+  faire des mesures de temps.
 
