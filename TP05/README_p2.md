@@ -11,12 +11,12 @@
 
 * You have to create an account
 * Then go to Circuits section, and Créer un circuit
-* You can prepare the circuit, adding an Arduino, a board, several LEDs, an LCD...
+* You can prepare the circuit, adding an Arduino, a board, several LEDs, a LCD...
 * For resistors, you have to properly define the capacity
-* Then go to code section, selecting Texte and you can start coding
+* Then go to code section, select Texte and you can start coding
 * Use Démarrer la simulation to run the code on the Arduino
 * There is no main() in the code, you have to fill the setup() function and the loop() function that performs an infinite loop
-* Adapt the code for [TinkerCad](http://tinkercad.com)
+* Adapt the code for [TinkerCad](http://tinkercad.com): move calls to initialization functions into setup() and the code of while(1) into loop()
 * For the scheduler (part 2), a skeleton for tinkercad is given, to avoid including home made librairies
 
 ## TP delivery
@@ -24,6 +24,7 @@
 * cf [les instructions](http://laure.gonnord.pages.univ-lyon1.fr/advanced-systems/HOWTO_CR_TP_MIF18.md)
 * Give a tgz after make clean (no binary file)
 * One delivery for both part1 and part2
+* One directory per version for the scheduler (part2), please.
 
 ## Problem Description
 
@@ -68,7 +69,7 @@ tâches qui s'exécutent en parallèle.
 ## Step 2: Scheduler
 
 Vous allez maintenant réaliser un véritable ordonnanceur utilisant
-un algorithme _Round Robin_ avec un intervalle de temps de 40
+un algorithme _Round Robin_ avec un intervalle de temps de 20
 ms. Votre micro-contrôleur réalisera trois tâches :
 * faire clignoter la LED rouge toutes les 300 ms.
 * envoyer en boucle un message sur le port série (chaque envoi de
@@ -149,28 +150,28 @@ L'ordonnanceur suivra donc l'algorithme suivant :
   currentask <- nexttask()
   if currenttask.state == RUNNING //la tâche a déjà été interrompue
      then
-          currenttask.relaunch(); // en vrai, utilise la fonction start
+          currenttask.restart(); // en vrai, utilise la fonction start
      else  // premier lancement de la tâche
           currenttask.state = RUNNING ;
           sei();                 //permettre les interruptions. 
-          currenttask.launch();
+          currenttask.start();
   endif
 ```
 Codez cet ordonnanceur (répertoire scheduler/)
 * Vous utiliserez toujours un timer qui lancera une interruption
   régulièrement.
-* La période de l'ordonnanceur sera de 40 ms. Pour faciliter le
+* La période de l'ordonnanceur sera de 20 ms. Pour faciliter le
   debug, chaque fois que l'ordonnanceur s'exécute, vous allumerez la
   LED jaune.
-* Ajout 20/03: évidemment, comme il y a une interruption toutes les
-  40ms, les périodes des tâches n'ont plus vraiment de sens, on ne
+* Evidemment, comme il y a une interruption toutes les
+  20ms, les périodes des tâches n'ont plus vraiment de sens, on ne
   demande pas ici de modifier ce comportement.
 * Mettez en évidence le problème de non-restoration de contexte :
   les tâches reprennent toujours au début et 
 * Après avoir testé, sauvez cette v1 dans un répertoire à part `scheduler/V1/`
 * (dans V1, il y aura un code complet qui compile, commenté, avec un
   readme, et quelques lignes d'explication des fonctionnalités et ce
-  que vous observez.
+  que vous observez).
 
 ### Ordonnanceur avec sauvegarde de contexte
 
@@ -219,7 +220,7 @@ L'ordonnanceur réalisera donc l'algorithme suivant :
           RESTORE_CONTEXT()
      sinon  // premier lancement de la tâche
           currenttask.state = RUNNING ;
-          currenttask.launch();
+          currenttask.start();
   finsi
   ```
 
@@ -232,7 +233,7 @@ L'ordonnanceur réalisera donc l'algorithme suivant :
   chaque reprise en main de l'ordonnanceur.
 
 * Modifier l'ordonnanceur Round Robin précédent (avec un
-  intervalle de 40 ms)  et testez-le.
+  intervalle de 20 ms)  et testez-le.
 
 * Sauvegardez cette version dans `scheduler/V2/`
 
