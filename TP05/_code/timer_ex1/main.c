@@ -4,6 +4,9 @@
 #include <avr/interrupt.h> 	
 #include <util/delay.h>  	// for the _delay_ms
 
+int int_counter = 0;
+volatile int second = 0;
+
 void init_led_red(void)
 {
   // TODO : init, red led is on analog 0
@@ -31,7 +34,12 @@ void task_led_red(void)
 
 ISR(TIMER2_OVF_vect)
 {
-  // TODO : blink the yellow led
+  int_counter += 1;
+  if (int_counter == 1000) { // around each second, blink the led
+    second+=1;
+    int_counter = 0;
+    // TODO : blink the yellow led
+  } 
 }
 
 

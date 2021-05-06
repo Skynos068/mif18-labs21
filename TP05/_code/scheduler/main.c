@@ -16,7 +16,6 @@
 #define NOT_STARTED	0
 #define RUNNING		1
 
-
 // Only for scheduler V2
 #define SAVE_CONTEXT()						\
   asm volatile (						\
@@ -95,7 +94,6 @@
 		"out 	__SREG__, r0	\n\t"			\
 		"pop	r0				\n\t"	\
 		 );
-
 
 // TASKS
 
@@ -180,13 +178,22 @@ static task_t tasks[] = {
 
 #define NB_TASK (sizeof(tasks)/sizeof(tasks[0]))
 
+int int_counter = 0;
+volatile int second = 0;
+
 // The isr interruption implements the scheduling activity
 ISR(TIMER2_OVF_vect)
 {
   static int current_task = 0 ;
   PORTC ^= 2 ; // Yellow led blinks to show its activity
 
-  // TODO : implement the scheduler.
+  int_counter += 1;
+  if (int_counter == 20) { // around each 20ms, schedule a new task
+    second+=1;
+    int_counter = 0;
+
+    // TODO : implement the scheduler.
+  }
 }
 
 int main(void)

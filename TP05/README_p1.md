@@ -7,9 +7,20 @@
   * Other collaborators: Thierry Excoffier (Lyon1), Grégoire Pichon.
   * Deadline : Thursday, June 3rd, 23h59 strict, on Tomuss.
 
+## Tinkercad for those following the class remotely
+
+* You have to create an account
+* Then go to Circuits section, and Créer un circuit
+* You can prepare the circuit, adding an Arduino, a board, several LEDs, an LCD...
+* For resistors, you have to properly define the capacity
+* Then go to code section, selecting Texte and you can start coding
+* Use Démarrer la simulation to run the code on the Arduino
+* There is no main() in the code, you have to fill the setup() function and the loop() function that performs an infinite loop
+* Adapt the code for [TinkerCad](http://tinkercad.com)
+* For the scheduler (part 2), a skeleton for tinkercad is given, to avoid including home made librairies
+
 ## TP delivery
 
-* for those following the class remotely, adapt the code for [TinkerCad](http://tinkercad.com) or use *_tinkercad.c files.
 * cf [les instructions](http://laure.gonnord.pages.univ-lyon1.fr/advanced-systems/HOWTO_CR_TP_MIF18.md)
 * Give a tgz after make clean (no binary file)
 * One directory per version for the scheduler, please.
