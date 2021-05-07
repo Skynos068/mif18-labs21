@@ -40,7 +40,8 @@ bidouillant pour réaliser le parallélisme, on se propose d'utiliser
 l'un des timers du micro-contrôleur pour faire clignoter les deux LEDs
 à deux fréquences différentes, la LED rouge clignotera toutes les
 200ms et la LED jaune toutes les 400 ms en parallèle. Le montage est
-le suivant: led rouge sur analog 0, led jaune sur analog 1.
+le suivant: led rouge sur analog 0, led jaune sur analog 1. On utilisera
+DDRC et PORTC (de manière similaire à DDRB et PORTB dans la partie 1).
 
 Afin de faire clignoter la LED jaune toutes les 400 ms en parallèle de
 la LED rouge,  nous allons utiliser un timer~:
