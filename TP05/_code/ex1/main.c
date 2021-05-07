@@ -40,9 +40,10 @@ int main(void)
   while(1) //infinite loop
     {
       button_state = get_button_state();
-      if (button_state == 1)
+      if (button_state == 1){
 	change_led_state();
-      _delay_ms(1000);     // 1Hz period
+	_delay_ms(1000);     // 1Hz period
+      }
     }
   
   return 0;
