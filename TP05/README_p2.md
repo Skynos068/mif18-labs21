@@ -151,7 +151,7 @@ L'ordonnanceur suivra donc l'algorithme suivant :
   currentask <- nexttask()
   if currenttask.state == RUNNING //la tâche a déjà été interrompue
      then
-          currenttask.restart(); // en vrai, utilise la fonction start
+          currenttask.restart(); // en vrai, utilise la fonction start en pensant à reactiver les interruptions avec sei().
      else  // premier lancement de la tâche
           currenttask.state = RUNNING ;
           sei();                 //permettre les interruptions. 
